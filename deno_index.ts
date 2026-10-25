@@ -71,7 +71,5 @@ async function handler(req: Request): Promise<Response> {
     });
   }
 }
-
-// 删除之前添加的 port 变量和 serve 选项
 console.log("此地址只用于帮助astrbot更快的连接github");
 serve(handler);
