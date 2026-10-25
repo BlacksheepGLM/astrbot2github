@@ -72,8 +72,6 @@ async function handler(req: Request): Promise<Response> {
   }
 }
 
-// 获取环境变量中的端口，如果没有则默认 8000
-const port = Deno.env.get("PORT") ? parseInt(Deno.env.get("PORT")!) : 8000;
-
-// 明确指定 hostname 为 "0.0.0.0"，确保 Deno Deploy 外部网关可访问
-serve(handler, { hostname: "0.0.0.0", port: port });
+// 删除之前添加的 port 变量和 serve 选项
+console.log("此地址只用于帮助astrbot更快的连接github");
+serve(handler);
