@@ -72,10 +72,14 @@ async function handler(req: Request): Promise<Response> {
   }
 }
 
-console.log("此地址只用于帮助astrbot更快的连接github"); // Deno Deploy 会自动使用 $PORT
-// 监听端口 8000 (本地) 或 Deno Deploy 指定的端口
-// 获取环境变量中的端口，如果没有则默认 8000
+// 找到类似这行的代码
+// 可能是 serve(handler); 或 Deno.serve(handler);
+// 将其替换为以下内容
+
+// 从环境变量读取端口，如果没有则默认 8000
 const port = Deno.env.get("PORT") ? parseInt(Deno.env.get("PORT")!) : 8000;
 
 // 明确指定 hostname 为 "0.0.0.0"，允许外部访问
-serve(handler, { hostname: "0.0.0.0", port: port });
+// 请根据你的代码使用 serve 或 Deno.serve
+serve(handler, { hostname: "0.0.0.0", port: port }); 
+// 或 Deno.serve({ hostname: "0.0.0.0", port: port }, handler);
